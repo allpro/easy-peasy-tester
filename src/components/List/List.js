@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { useStoreState, useStoreActions, useStoreDispatch } from 'easy-peasy'
 // import { connect } from 'react-redux'
 
@@ -47,49 +47,53 @@ const styles = {
 
 function List(props) {
 	return (
-		<div>
-			<div style={{ textAlign: 'left', display: 'inline-block' }}>
-				<button onClick={props.getItems} style={styles.button}>
-					Get Items
-				</button>
+		<Fragment>
+			<div>
+				<div style={{ textAlign: 'left', display: 'inline-block' }}>
+					<button onClick={props.getItems} style={styles.button}>
+						Get Items
+					</button>
 
-				<button onClick={props.getAlbums} style={styles.button}>
-					Get Albums
-				</button>
+					<button onClick={props.getAlbums} style={styles.button}>
+						Get Albums
+					</button>
 
-				<button onClick={props.getPostsDispatch} style={styles.button}>
-					Get Posts (Dispatch)
-				</button>
+					<button onClick={props.getPostsDispatch} style={styles.button}>
+						Get Posts (Dispatch)
+					</button>
 
-				<button onClick={props.getPostsAction} style={styles.button}>
-					Get Posts (Action)
-				</button>
+					<button onClick={props.getPostsAction} style={styles.button}>
+						Get Posts (Action)
+					</button>
 
-				<button onClick={props.savePostView} style={styles.button}>
-					Post.View Payload
-				</button>
+					<button onClick={props.savePostView} style={styles.button}>
+						Post.View Payload
+					</button>
+				</div>
 			</div>
 
-			<div style={styles.listWrapper}>
-				<p style={{ borderBottom: '1px solid #999', paddingBottom: '7px' }}>
-					{props.count} Item{props.count === 1 ? '' : 's'}
-				</p>
+			<div>
+				<div style={styles.listWrapper}>
+					<p style={{ borderBottom: '1px solid #999', paddingBottom: '7px' }}>
+						{props.count} Item{props.count === 1 ? '' : 's'}
+					</p>
 
-				<ul style={{ paddingLeft: 0, listStyle: 'none' }}>
-					{props.items.map((item, idx) => (
-						<ListItem
-							key={idx}
-							item={{ name: item, id: idx }}
-							removeItem={props.removeItem}
+					<ul style={{ paddingLeft: 0, listStyle: 'none' }}>
+						{props.items.map((item, idx) => (
+							<ListItem
+								key={item}
+								item={{ name: item, id: idx }}
+								removeItem={props.removeItem}
+							/>
+						))}
+
+						<NewListItem
+							addItem={props.addItem}
 						/>
-					))}
-
-					<NewListItem
-						addItem={props.addItem}
-					/>
-				</ul>
+					</ul>
+				</div>
 			</div>
-		</div>
+		</Fragment>
 	)
 }
 
