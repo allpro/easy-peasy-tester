@@ -1,11 +1,23 @@
 {
   "name": "redux-one",
   "version": "0.1.0",
+  "description": "Data Manager for React Forms, or for any form data",
+  "author": "allpro",
+  "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allpro/redux-one.git"
+  },
   "dependencies": {
+    "easy-peasy": "^2.6.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "reduce-reducers": "^1.0.4",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
