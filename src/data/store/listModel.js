@@ -17,7 +17,10 @@ const listModel = {
 	),
 	setNotFetching: action(
 		state => { state.isFetching = false },
-		{ listenTo: '@thunk.list.getItems(completed)' }
+		{ listenTo: [
+			'@thunk.list.getItems(completed)',
+			'@thunk.list.getItems(failed)'
+		]}
 	),
 
 	getItems: thunk((actions, config, { injections }) => (

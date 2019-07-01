@@ -24,6 +24,8 @@ const actions = {
 		return api.getPosts(config)
 		.then(payload => {
 			dispatch({ type: ACTIONS.SET_POSTS_ITEMS, payload })
+		})
+		.finally(() => {
 			dispatch({ type: ACTIONS.SET_POSTS_NOT_FETCHING })
 		})
 	},
@@ -35,6 +37,8 @@ const actions = {
 		return api.getAlbums(config)
 		.then(payload => {
 			dispatch({ type: ACTIONS.SET_ALBUMS_ITEMS, payload })
+		})
+		.finally(() => {
 			dispatch({ type: ACTIONS.SET_ALBUMS_NOT_FETCHING })
 		})
 	}

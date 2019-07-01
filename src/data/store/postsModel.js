@@ -29,7 +29,10 @@ const postsModel = {
 	),
 	setNotFetching: action(
 		state => { state.isFetching = false },
-		{ listenTo: '@thunk.posts.getItems(completed)' }
+		{ listenTo: [
+			'@thunk.posts.getItems(completed)',
+			'@thunk.posts.getItems(failed)'
+		]}
 	),
 
 	getItems: thunk((actions, config, { injections }) => (

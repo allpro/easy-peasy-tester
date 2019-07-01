@@ -4,6 +4,7 @@ const GET = { method: 'GET' }
 function getItems() {
 	return fetch(`${SERVER}/todos`, GET) // /${from || 1
 	.then(response => response.json())
+	// Reduce items to an array of titles (strings)
 	.then(data => data.reduce((acc, item) => acc.push(item.title) && acc, []))
 }
 
