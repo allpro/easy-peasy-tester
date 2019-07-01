@@ -41,14 +41,14 @@ function ListContainer() {
 }
 
 const styles = {
-	button: { margin: '0 10px' },
+	button: { margin: '0 10px 10px' },
 	listWrapper: { textAlign: 'left', display: 'inline-block' }
 }
 
 function List(props) {
 	return (
 		<div>
-			<div>
+			<div style={{ textAlign: 'left', display: 'inline-block' }}>
 				<button onClick={props.getItems} style={styles.button}>
 					Get Items
 				</button>
